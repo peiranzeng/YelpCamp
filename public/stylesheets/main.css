@@ -1,0 +1,37 @@
+.thumbnail img{
+    width: 100%;
+}
+
+.thumbnail{
+    padding: 0;
+}
+
+.thumbnail .caption-full{
+    padding: 9px;
+}
+
+.delete-form{
+    display: inline;
+}
+
+.jumbotron{
+    background-image: url("https://i.imgur.com/KrFKTJO.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size:cover;
+}
+
+.white{
+    color: white;
+}
+
+.jumbotron h1{
+    color: white;
+}
+
+/* Google Maps */
+#map {
+    height: 400px;
+    width: 100%;
+}
