@@ -35,7 +35,7 @@ app.use(flash());
 app.locals.moment = require("moment");
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({
-    secret: "You found the camp!",
+    secret: process.env.EXPRESSSCRETE,
     resave: false,
     saveUninitialized: false
 }));
