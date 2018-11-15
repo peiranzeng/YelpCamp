@@ -1,7 +1,7 @@
 # YelpCamp
 >A Node.js web application project from the Udemy course - [The Web Developer Bootcamp](https://www.udemy.com/the-web-developer-bootcamp/)
 ## Project Demo
-To view the live demo, go visit [https://zengsyelpcamp.herokuapp.com](https://frozen-temple-19127.herokuapp.com)
+To view the live demo, go visit [https://zengsyelpcamp.herokuapp.com](https://zengsyelpcamp.herokuapp.com/)
 ## Features
 * Authentication:
 
