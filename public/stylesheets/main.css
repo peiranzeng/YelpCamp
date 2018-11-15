@@ -24,11 +24,25 @@
 
 .white{
     color: white;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 }
 
 .jumbotron h1{
     color: white;
 }
+
+.shadow{
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+}
+
+.boxshadow{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#avatarpart .thumbnail{
+    width: 200px;
+}
+
 
 /* Google Maps */
 #map {

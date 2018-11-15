@@ -2,7 +2,7 @@
 <div class="row">
     <h1 style="text-align: center">Sign Up</h1>
     <div style="width: 30%; margin: 25px auto;">
-        <form action="/register" method="post">
+        <form action="/register" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <input class="form-control" type="text" name="username" placeholder="username">
             </div>
@@ -19,7 +19,8 @@
                 <input class="form-control" type="email" name="email" placeholder="email">
             </div>
             <div class="form-group">
-                <input class="form-control" type="text" name="avatar" placeholder="avatar url">
+                    <label for="image">avatar</label>
+                    <input type="file" id="image" name="image" accept="image/*" required>
             </div>
             <div class="form-group">
                 <input class="form-control" type="text" name="adminCode" placeholder="Admin code">

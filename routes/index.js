@@ -11,6 +11,28 @@ router.get("/", function(req, res){
    res.render("landing");
 });
 
+// Upload Inmage
+var multer = require('multer');
+var storage = multer.diskStorage({
+  filename: function(req, file, callback) {
+    callback(null, Date.now() + file.originalname);
+  }
+});
+var imageFilter = function (req, file, cb) {
+    // accept image files only
+    if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
+        return cb(new Error('Only image files are allowed!'), false);
+    }
+    cb(null, true);
+};
+var upload = multer({ storage: storage, fileFilter: imageFilter})
+
+var cloudinary = require('cloudinary');
+cloudinary.config({ 
+  cloud_name: 'dcliv8off', 
+  api_key: process.env.CLOUDINARY_API_KEY, 
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
 // =============
 // AUTH ROUTES
@@ -21,14 +43,15 @@ router.get("/register", function(req, res) {
    res.render("register", {page: 'register'}); 
 });
 //handle sign up logic
-router.post("/register", function(req, res) {
-    var newUser = new User(
+router.post("/register", upload.single('image'), function(req, res) {
+    cloudinary.uploader.upload(req.file.path, function(result) {
+        var newUser = new User(
         {
             username: req.body.username, 
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
-            avatar: req.body.avatar
+            avatar: result.secure_url
         });
     if(req.body.adminCode === process.env.ADMIN_SECRET){
         newUser.isAdmin = true;
@@ -43,6 +66,8 @@ router.post("/register", function(req, res) {
             res.redirect("/campgrounds");
         });
     });
+    });
+    
 });
 
 //show login form

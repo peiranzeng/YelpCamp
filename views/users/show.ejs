@@ -8,14 +8,27 @@
         <div class="caption"><a href="mailto:<%= user.email %>"><%= user.email %></a></div>
         </div>
     </div>
-        <div class="col-md-8">
-            <h3><%= user.firstName%>'s campgrounds</h3>
-            <ul>
-            <% campgrounds.forEach(function(campground) { %>
-                <li><a href="/campgrounds/<%= campground.id%>"><%= campground.name %></a></li>
-            <% }); %>
-            </ul>
-        </div>
 </div>
+    <div>
+        <div class="col-md-12">
+            <h3><%= user.firstName%>'s campgrounds</h3>
+            <div class ="row text-center" style="display:flex; flex-wrap: wrap;">
+            <% campgrounds.forEach(function(campground){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail boxshadow">
+                <img src="<%= campground.image %>">
+                <div class="caption">
+                    <h4><%= campground.name %></h4>
+                </div>
+                <p>
+                    <a href="/campgrounds/<%= campground._id%>" class="btn btn-primary">More Info</a>
+                </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+        </div>
+    </div>
+
 
 <% include ../partials/footer %>
